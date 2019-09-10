@@ -1,0 +1,13 @@
+
+
+
+
+addons:
+  sonarcloud:
+    organization: "afcabezasq"
+    token:
+      secure: "213d3fd6226addfd2867a9051478ffff623c0c42" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=afcabezasq_BackGround
