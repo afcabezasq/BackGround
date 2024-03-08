@@ -1,5 +1,6 @@
 package com.revature.io;
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,8 +15,9 @@ public class DeserializationDriver {
 		try(FileInputStream fis = new FileInputStream(path);
 				ObjectInputStream ois = new ObjectInputStream(fis)){
 			
+			ObjectInputFilters.enableObjectFilterIfUnprotected(ois);
 			Person p = (Person) ois.readObject();
-			
+
 			System.out.println(p);
 			
 		} catch (FileNotFoundException e) {
